@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>SnowSlide</title>
+    <link rel="stylesheet" href="css/slide.css">
+    <link rel="stylesheet" href="css/misic.css">
+    <link rel="stylesheet" href="css/fontsSlide.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/jquery.1.10.2.js"></script>
+    <script type="text/javascript" src="js/ThreeCanvas.js"></script>
+    <script type="text/javascript" src="js/Snow.js"></script>
+    <script type="text/javascript" src="js/DrawSonw.js"></script>
+    <script type="text/javascript" src="js/misicplayer.js"></script>
+</head>
+<body onLoad="init()">
+    <div id="misic" >
+        <div id="audio-btn" class="on" onclick="misic.changeClass(this,'media')">
+            <audio loop="loop" src="mymis/日之内绘美 - 卒業 (毕业).mp3" id="media" preload="preload"></audio>
+        </div>
+    </div>
+    <div class="slideshow">
+        <div class="slideshow-image" style="background-image: url('images/1.jpg')"></div>
+        <div class="slideshow-image" style="background-image: url('images/2.jpg')"></div>
+        <div class="slideshow-image" style="background-image: url('images/3.jpg')"></div>
+        <div class="slideshow-image" style="background-image: url('images/4.jpg')"></div>
+    </div>
+    <script type="text/javascript">
+    var misic = {
+        changeClass: function(target, id) {
+            var className = $(target).attr('class');
+            var ids = document.getElementById(id);
+            (className == 'on') ?
+            $(target).removeClass('on').addClass('off'): $(target).removeClass('off').addClass('on');
+            (className == 'on') ?
+            ids.pause(): ids.play();
+        },
+        play: function() {
+            document.getElementById('media').play();
+        }
+    }
+    </script>
+    <script type="text/javascript">
+    misic.play();
+    $.MyMessage({ texts: [{ text: "鸣神の" }, { text: "少しとよみて" }, { text: "さし昙り" }, { text: "雨も降らんか" }, { text: "君を留めん" },], showhint: false, backgrounds: [{ color: "transparent" }] });
+    $("#ReLaunch").on("click", function(a) { $.MyMessage({ texts: [{ text: "鸣神の" }, { text: "少しとよみて" }, { text: "さし昙り" }, { text: "雨も降らんか" }, { text: "君を留めん" },], showhint: false, backgrounds: [{ color: "transparent" }] }) });
+    </script>
+</body>
+
+</html>
